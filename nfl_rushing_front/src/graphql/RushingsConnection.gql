@@ -1,10 +1,26 @@
 
-query RushingsConnection {
- rushings{
-    nodes{
-      id
-      playerName
-      yards
+query RushingsConnection ($first: Int, $sortBy: String, $sortDesc: Boolean, $nameFilter: String) {
+ rushings(first: $first, sortBy: $sortBy, sortDesc: $sortDesc, nameFilter: $nameFilter){
+    edges{
+      cursor
+      node{
+        id
+        playerName
+        team
+        position
+        attempts
+        attemptsPerGameAvg
+        yards
+        yardsPerGameAvg
+        yardsPerAttemptAvg
+        touchdowns
+        longuest
+        firstDowns
+        firstDownsPct
+        twentyPlus
+        fourtyPlus
+        fumbles
+      }
     }
   }
 }

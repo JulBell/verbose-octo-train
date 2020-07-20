@@ -1,11 +1,11 @@
 <template>
   <div>
-      {{ rushing.playerName }} - {{ rushing.yards }}
+    {{ rushing.playerName }} - {{ rushing.yards }}
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 
 export default {
   name: 'RushingRow',
@@ -25,7 +25,7 @@ export default {
 
   },
   methods: {
- 
+
   }
 }
 </script>
