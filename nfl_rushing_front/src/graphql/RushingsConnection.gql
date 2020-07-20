@@ -1,0 +1,10 @@
+
+query RushingsConnection {
+ rushings{
+    nodes{
+      id
+      playerName
+      yards
+    }
+  }
+}

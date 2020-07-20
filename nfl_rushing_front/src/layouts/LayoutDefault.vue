@@ -1,11 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'LayoutDefault'
 }
 </script>
+
+<style>
+
+</style>
