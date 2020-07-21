@@ -1,6 +1,6 @@
 
-query RushingsConnection ($first: Int, $sortBy: String, $sortDesc: Boolean, $nameFilter: String) {
- rushings(first: $first, sortBy: $sortBy, sortDesc: $sortDesc, nameFilter: $nameFilter){
+query RushingsConnection ($first: Int, $last: Int, $sortBy: String, $sortDesc: Boolean, $nameFilter: String, $after: String, $before: String) {
+ rushings(first: $first, last: $last, sortBy: $sortBy, sortDesc: $sortDesc, nameFilter: $nameFilter, after: $after, before: $before){
     edges{
       cursor
       node{
@@ -21,6 +21,12 @@ query RushingsConnection ($first: Int, $sortBy: String, $sortDesc: Boolean, $nam
         fourtyPlus
         fumbles
       }
+    }
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
+      hasPreviousPage
     }
   }
 }

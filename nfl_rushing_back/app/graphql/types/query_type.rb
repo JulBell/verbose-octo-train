@@ -9,9 +9,13 @@ module Types
     end
 
     def rushings(sort_by: 'yards', sort_desc: 'true', name_filter:)
+      sort_direction = sort_desc ? 'DESC' : 'ASC'
       rushings = Rushing.all
       rushings = rushings.where("player_name LIKE ?", "%#{name_filter}%") if name_filter
-      rushings.order("#{sort_by} #{sort_desc ? 'DESC' : 'ASC'}")
+      # Little trick used here to correctly sort alphanumeric longuest
+      # TODO: Find a better way to handle this case maybe (ex: split distance and TD on different attributes,)
+      rushings = rushings.order("CAST(RTRIM(#{sort_by},'T') AS INTEGER) #{sort_direction}") if sort_by == 'longuest'
+      rushings.order("#{sort_by} #{sort_direction}")
     end
   end
 end
